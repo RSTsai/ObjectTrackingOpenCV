@@ -62,7 +62,7 @@ else:
 # initialize the FPS throughput estimator
 fps = None
 # loop over frames from the video stream
-while v(s.isOpened()):
+while (vs.isOpened()):
     # grab the current frame, then handle if we are using a
     # VideoStream or VideoCapture object
     frame = vs.read()

@@ -51,6 +51,12 @@ def Main():
         ret, frame  = vs.read()
         key = cv2.waitKey(1) & 0xFF
 
+        # break
+        if frame is None:
+            break
+        if key == ord('q'):
+            break
+
         # set bbox
         if (bbox == None) or (key == ord('s')):
             cv2.imshow("Frame",frame)
@@ -67,15 +73,10 @@ def Main():
             
             cv2.putText(frame, "success" if success else "failure", (10,20),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255))
-            cv2.imshow("Frame",frame)
-            cv2.waitKey(1)
-
-        # break
-        if frame is None:
-            break
-        if key == ord('q'):
-            break
-
+        
+        # image show
+        cv2.imshow("Frame",frame)
+        cv2.waitKey(1)
 
     vs.release()
     cv2.destroyAllWindows()
