@@ -51,7 +51,7 @@ def Main():
         ret, frame  = vs.read()
         key = cv2.waitKey(1) & 0xFF
 
-        # break
+        # break condition
         if frame is None:
             break
         if key == ord('q'):
@@ -59,7 +59,6 @@ def Main():
 
         # set bbox
         if (bbox == None) or (key == ord('s')):
-            cv2.imshow("Frame",frame)
             bbox = cv2.selectROI("Frame",frame,fromCenter=False,showCrosshair=True)
             print("first box:",bbox)
             tracker.init(frame, bbox)
